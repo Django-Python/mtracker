@@ -1,0 +1,32 @@
+body{
+    overflow-x: hidden;
+}
+.logo{
+    margin: 15px;
+}
+.navbar{
+    z-index: 10;
+    padding: 0% 15% 0% 10%;
+    background-color: #504DFF;
+}
+.nav_items{
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    flex-wrap: nowrap;
+    float: right;
+    justify-content: flex-end;
+    height: 100%;
+}
+.nav_items>li>a{
+    color: aliceblue;
+    font-size: 18px; 
+}
+.nav_items>li{
+    padding: 15px;
+}
+.nav_items>li:hover{
+    background-color: blue;
+}

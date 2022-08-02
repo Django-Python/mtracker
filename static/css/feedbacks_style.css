@@ -1,0 +1,50 @@
+body{
+    overflow-x: hidden;
+}
+.nav-wrapper{
+    padding: 0% 15% 0% 10%;
+    background-color: #504DFF;
+    position: fixed;
+}
+.feedback-search{
+    display: flex;
+    width: 90%;
+    margin: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.btn{
+    background: #504DFF;
+    border-radius: 10px;
+}
+.feedbacks-container{
+    padding: 1% 10% 0% 10%;
+}
+
+.feedbacks-title{
+    font-weight: 800;
+    color: #504DFF;
+}
+.feedback-card{
+    min-height: 100px;
+    width: auto;
+    background-color: white;
+    padding: 15px 20px;
+    margin: 20px 0px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 5px rgba(216, 216, 216, 0.678);
+}
+.employee-info, .rating-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.feedback-card>div>div>span{
+    color: #504DFF;
+    font-style: italic;
+}
+.feedback-card>div>div{
+    font-weight: 600;
+}
+

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
+  <style>
+    h1,
+    p {
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+
+    .app {
+      width: 90%;
+      margin: 0 0;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      /* justify-content: center; */
+      /* align-items: center; */
+    }
+
+    .item {
+      width: 90px;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      user-select: none;
+    }
+
+    .radio {
+      display: none;
+    }
+
+    .radio~span {
+      font-size: 3rem;
+      filter: grayscale(100);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .radio:checked~span {
+      filter: grayscale(0);
+      font-size: 4rem;
+    }
+
+    .feedback {
+      color: rgb(0, 0, 0);
+      background-color: #ffffff;
+      margin: 0% 10%;
+      width: 70%;
+      padding: 15px 10px 10px 20px;
+      /* display: flex;
+      flex-direction: column;
+      justify-content: left;
+      align-items:center; */
+    }
+
+    .survey-hr {
+      margin: 10px 0;
+      border: .5px solid #ddd;
+    }
+
+    .task-details {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    li>span {
+      font-weight: 600;
+      padding: 5px;
+    }
+
+    .task-details>li {
+      padding: 5px;
+    }
+
+
+
+    input {
+      margin: 0px 5px 0px 20px;
+    }
+
+    .brand-logo {
+      background-color: #504DFF;
+      padding: 15px;
+      display: flex;
+    }
+
+    .employee-info,
+    .hr-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="feedback">
+    <div class="top">
+      <a href="#!" class="brand-logo">
+        <img src="\static\img\mTracker.png">
+      </a>
+      <p>Dear Employee,<br>
+        The task/query that you have asked to HR team has been resolved.
+        <!-- <div>
+          <ul class="task-details">
+            <div class="employee-info">
+              <li>Employee Name: <span>Vijay Babu</span></li>
+              <li>Employee ID: <span>876112</span></li>
+              <li>Email ID: <span>vijay.babu@marlabs.com</span></li>
+            </div>
+            <hr>
+            <div class="hr-info">
+              <li>Task/Query: <span>{{request.user.designation}}</span></li>
+              <li>HR Name: <span>{{request.user.first_name}}</span></li>
+              <li>HR Employee ID: <span>{{request.user.empid}}</span></li>
+            </div>
+            <hr>
+            <div>Status: <li><span>Completed</span></li>
+            </div>
+          </ul>
+        </div> -->
+
+    </div>
+    <form action="" method="post" id="feedback_form">
+      {% csrf_token %}
+      <div class="app">
+        <h4 style="color: #504DFF;">1. Please rate your experience with HR(Required):</h4>
+        <p id="rating_message">Let us know how we did</p>
+        <div class="container">
+          <div class="item">
+            <label for="0">
+              <input class="radio" type="radio" name="rating" id="0" value="0" >
+              <span>&#128532;</span>
+            </label>
+          </div>
+
+          <div class="item">
+            <label for="1">
+              <input class="radio" type="radio" name="rating" id="1" value="1" >
+              <span>&#128530;</span>
+            </label>
+          </div>
+
+          <div class="item">
+            <label for="2">
+              <input class="radio" type="radio" name="rating" id="2" value="2" >
+              <span>&#128528;</span>
+            </label>
+          </div>
+
+          <div class="item">
+            <label for="3">
+              <input class="radio" type="radio" name="rating" id="3" value="3">
+              <span>&#128522;</span>
+            </label>
+          </div>
+
+          <div class="item">
+            <label for="4">
+              <input class="radio" type="radio" name="rating" id="4" value="4" >
+              <span>&#128525;</span>
+            </label>
+          </div>
+
+        </div>
+        <hr class="survey-hr">
+        <h4 style="color: #504DFF;">2. Any Other suggestions(Optional):</h4>
+        <textarea cols="50" name="feedback" rows="5"></textarea><br>
+        <br>
+        <div class="clear"></div>
+        <input style="background: #504DFF;border-radius: 10px;color:#fff;padding:12px;border:0" type="submit"
+          value="Submit your review">
+      </div>
+    </form>
+
+  </div>
+  <script type="text/javascript">
+    const form = document.getElementById('feedback_form');
+    form.addEventListener('submit', (event) => {
+      var rating = form.elements['rating'].value;
+      var feedback = form.elements['feedback'].value;
+      if (rating == "") {
+        document.getElementById("rating_message").innerHTML="<span style='color:red;'>This field is mandetory.</span>";
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
+
+</html>

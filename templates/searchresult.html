@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block body %}
+<center>
+    <div class="search-tab-container">
+        <center>
+            <div class="form-group">
+                {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+            </div>
+        </center>
+    </div>
+<div class="all-tasks-container">
+    <div>
+        <ul class="collapsible">
+            {% for data in searchData %}
+            <li class="task-card pending">
+                <div class="collapsible-header">
+                    <div class="employee-info">
+                        <div class="">Employee ID: <span>{{data.empid}}</span></div>
+                        <div class="">Name: <span>{{data.empname}}</span></div>
+                        <div class="">Email: <span>{{data.empemail}}</span></div>
+                        <div class="">Status: <span>{{data.taskstatus}}</span></div>
+                        <div>Task/Query: <span>{{data.taskname}}</span></div>
+                    </div>
+                </div>
+                <div class="collapsible-body row">
+
+                    <div class="task-summary col l9 s12">
+                        <span class="summary-title">Summary</span>
+                        <div class="summary-list">
+                            <div class="">Created Date: <span class="summary-date">{{data.createdon}}</span></div>
+                            <div class="">Due Date: <span class="summary-date">{{data.duedate}}</span></div>
+                            <div class="">Getting further info: <span class="summary-date">{{data.tasksummary}}</span></div>
+                            <!-- <div class="">Connecting with the employee <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div>
+                            <div class="">Resolved <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div>
+                            <div class="">Getting further info <span class="summary-date">(07/15/2022, 02:00:12 PM)</span></div>
+                            <div class="">Connecting with the employee <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div>
+                            <div class="">Resolved <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div> -->
+                        </div>
+                    </div>
+                    <div class="task-actions col l3 s12">
+                        <div class="">
+                            <div class="input-field">
+                                <a href="{% url 'updatetask' data.id %}"><button type='submit' name='btn_update' id="task-update-btn"
+                                    class='btn btn-small teal waves-effect waves-light'>Update</button></a>
+                            </div>
+                            <div class="col s12"></div>
+                            <div class="input-field">
+                                <form action="{% url 'deletetask' data.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button name='btn_ask_delete' id="task-delete-btn"
+                                    class=' btn btn-small red waves-effect waves-light'>Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+            <center>
+                <button class="btn load-more-btn waves-effect waves-light" onclick="">Load More...</button>
+            </center>
+            <br>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="/static/js/nav-bar.js"></script>
+<script src="/static/js/search-display-task.js"></script>
+<script src="/static/js/jquery.datetimepicker.full.min.js"></script>
+<script>
+    // mobile navbar
+    $(document).ready(function () {
+        $('.sidenav').sidenav();
+    });
+</script>
+{% endblock %}

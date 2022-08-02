@@ -1,0 +1,64 @@
+    {% extends "base.html" %}
+    {% block body %}
+    <style>
+        #fedd{
+            height:150px; 
+            width:70%;
+            overflow:hidden; 
+            overflow-y:scroll;}
+   </style>
+    <div class="profile-container">
+        <div class="row">
+            <center>
+                <h5 class="profile-title">Profile</h5>
+
+                <div class="profile-details-card z-depth-3">
+                    <div class="profile-img" id="profile-img">
+                        <img src="/static/img/profile.png">
+                    </div>
+
+                    <ul>
+                        <li>Name: <span>{{user.first_name}} {{user.last_name}}</span></li>
+                        <li>Designation: <span>{{user.designation}}</span></li>
+                        <li>Employee ID: <span>{{request.user.empid}}</span></li>
+                        <li>Email ID: <span>{{user.email}}</span></li>
+                        <li>Location: <span>{{user.location}}</span></li>
+                    </ul>
+
+                </div>
+                <br>
+            </center>
+        </div>
+        <div class="row">
+            <center>
+                <div class="profile-details-card z-depth-3">    
+                <center>
+                    <ul>
+                        <li>Excellence:<span>{{excellent}}</span></li>
+                        <li>Good      :<span>{{good}}</span></li>
+                        <li>Average   :<span>{{average}}</span></li>
+                        <li>Sad       :<span>{{sad}}</span></li>
+                        <li>Disappoint:<span>{{very_sad}}</span></li>
+                        <label for="fedd" style="font-size: 20px;">Feedbacks : </label>
+                        <ul id="fedd">
+                        {% for data in allData %}
+                        <li><span>{{data.feedback}}</li>
+                        {% endfor %}
+                        </ul>
+                    </ul>
+                </center>
+                </div>
+            </center>
+            <br>
+        </div>
+    </div>
+    <script>
+        
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+{% endblock %}
+<!-- </body>
+
+</html> -->

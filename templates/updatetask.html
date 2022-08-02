@@ -1,0 +1,104 @@
+
+{% extends "base.html" %}
+{% block body %}
+
+    <div class="update-task-container">
+        <div class="row">
+            <center>
+                <h5 class="update-task-title">Update Task</h5>
+            </center>
+            <form class="col l12 s12 offset-m0 offset-l2" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col l4 s12">
+                        <input disabled placeholder="Type employee id..." id="emp-id" type="text" class="validate" name="emp-id"
+                            value={{getData.empid}}>
+                        <label for="emp-id">Employee ID</label>
+                    </div>
+                    <div class="input-field col l4 s12">
+                        <input placeholder="Type employee name..." id="emp-name" type="text" class="validate" name="emp-name"
+                            value={{getData.empname}}>
+                        <label for="emp-name">Employee Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col l8 s12">
+                        <input placeholder="Type employee email..." id="emp-email" type="text" class="validate" name="emp-email"
+                    value={{getData.empemail}}>
+                        <label for="emp-email">Employee Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col l3 s12">
+                        <select id="task-name" name="task-option" >
+                            <!-- <option value="Select a task" selected>Select a task</option> -->
+                            <option value={{getData.taskname}}>{{getData.taskname}}</option>
+                            <!-- <option value='HR'>HR</option>
+                            <option value="Others">Others</option> -->
+                        </select>
+                        <label>Task name</label>
+                    </div>
+                    <!-- <div class="input-field col l5 s12">
+                        <textarea disabled id="task-name-manual" class="materialize-textarea">{{getData.taskname}}</textarea>
+                        <label for="task-name-manual">Type task name...</label>
+                    </div> -->
+                </div>
+
+                <div class="row">
+                    <div class="input-field col l4 s12">
+                        <label>Due Date</label>
+                        <input placeholder="Select Due Date" type="text" class="datepicker" name="due-date" value={{getData.duedate}}>
+                    </div>
+                    
+                    <div class="input-field col l4 s12">
+                        <select id="task-status" name="task-status" value={{getData.taskstatus}}>
+                            <option value="pending" selected>Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <label>Task Status</label>
+                    </div>
+                </div>
+                <!-- get summary with datetime stamp -->
+                <div class="row all-summary">
+                    <!-- iNPUT NEW SUMMARY -->
+                    <div class="input-field col l4 s12">
+                        
+                        <textarea placeholder="Add new updates here..." id="input-summary"
+                            class="materialize-textarea" name="task-summary">{{getData.tasksummary}}</textarea>
+                            <!-- <a class="waves-effect waves-light btn-small" id="add_summary_btn">Add Summary<i class="material-icons right">add_box</i></a> -->
+                        <label for="input-summary">Add Summary</label>
+                    </div>
+                    <!-- <div class="col l4 s12 task-list-box" id="">
+                        <span>Task Summary</span>
+                        <ul id="task-list">
+                        </ul>
+                    </div> -->
+                    
+                </div>
+                <div class="row">
+                    
+                    <div class="input-field col s12">
+                        <button type='submit' name='btn_update' id="task-update-btn"
+                            class='col l3 m6 s12 btn btn-large waves-effect'>Update</button>
+                    </div>
+                    
+                    <!-- <div class="input-field col s12">
+                        <!-- <a href="/search/deletetask/{{getDeletedData.id}}"></a><button type='submit' name='btn_update' id="task-update-btn"
+                            class='col l3 m6 s12 btn btn-large waves-effect'>Delete</button></a>
+                    </div> -->
+                    
+            </form>
+        </div>
+    </div>
+    <script>
+
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="../../static/js/task-update.js"></script>
+    <script src="../../static/js/jquery.datetimepicker.full.min.js"></script>
+
+{% endblock %}
+<!-- </body>
+
+</html> -->

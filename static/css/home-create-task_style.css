@@ -1,0 +1,20 @@
+body{
+    overflow-x: hidden;
+}
+.nav-wrapper{
+    padding: 0% 15% 0% 10%;
+    background-color: #504DFF;
+    position: fixed;
+}
+
+.create-task-container{
+    padding: 1% 10% 0% 10%;
+}
+#task-submit-btn{
+    background: #504DFF;
+    border-radius: 10px;
+}
+.create-task-title{
+    font-weight: 800;
+    color: #504DFF;
+}

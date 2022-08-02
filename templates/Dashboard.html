@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block body %}
+
+<!-- <div>
+    <h2>Home Page</h2>
+</div> -->
+{% if request.user.is_authenticated %}
+<div class="profile-container">
+    <div class="row">
+        <!-- <center>
+            <div class=""> -->
+                
+                <h4 style="padding-left: 300px; padding-top: 20px;">Hi,{{request.user.first_name}}</h4>
+                
+            <!-- </div>
+        </center> -->
+    </div>
+    <!-- <div class="row">
+        <center>
+            <div class="profile-details-card z-depth-3">
+                
+                <center>
+                <table>
+                    <tr></tr>
+                    <th>Total Task</th>
+                    <th>Completed Task</th>
+                    <th>Pending Task</th>
+                </tr>
+                <tr>
+                    <td>{{context.totaltask}}</td>
+                    <td>{{context.completedtask}}</td>
+                    <td>{{context.pendingtask}}</td>
+                </tr>
+                </table>
+            </center>
+            </div>
+        </center>
+            <br> -->
+    </div>
+</div>
+</center>
+<div class="row">
+<center>
+    <h5 class="all-tasks-title">Tasks</h5>
+</center>
+
+</div>
+<div style="padding: 0px 50px;">
+<ul class="collapsible">
+    {% for data in taskData %}
+    <li class="task-card {{data.taskstatus}}">
+        <div class="collapsible-header">
+            <div class="employee-info">
+                <div class="">Employee ID: <span>{{data.empid}}</span></div>
+                <div class="">Name: <span>{{data.empname}}</span></div>
+                <div class="">Email: <span>{{data.empemail}}</span></div>
+                <div class="">Status: <span>{{data.taskstatus}}</span></div>
+                <div>Task/Query: <span>{{data.taskname}}</span></div>
+            </div>
+        </div>
+        <div class="collapsible-body row">
+
+            <div class="task-summary col l9 s12">
+                <div class="summary-list">
+                    <div class="">Created Date: <span class="summary-date">{{data.createdon}}</span></div>
+                    <div class="">Due Date: <span class="summary-date">{{data.duedate}}</span></div>
+                    <div class="">Summary: <span class="summary-date">{{data.tasksummary}}</span></div>
+                    <!-- <div class="">Connecting with the employee <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div>
+                    <div class="">Resolved <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div>
+                    <div class="">Getting further info <span class="summary-date">(07/15/2022, 02:00:12 PM)</span></div>
+                    <div class="">Connecting with the employee <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div>
+                    <div class="">Resolved <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div> -->
+                </div>
+            </div>
+            <div class="task-actions col l3 s12">
+                <div class="">
+                    <div class="input-field">
+                        <a href="{% url 'updatetask' data.id %}"><button type='submit' name='btn_update' id="task-update-btn"
+                            class='btn btn-small teal waves-effect waves-light'>Update</button></a>
+                    </div>
+                    <div class="col s12"></div>
+                    <div class="input-field">
+                        <form action="{% url 'deletetask' data.id %}" method="post">
+                            {% csrf_token %}
+                            <button name='btn_ask_delete' id="task-delete-btn"
+                            class=' btn btn-small red waves-effect waves-light'>Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+    <center>
+        <button class="btn load-more-btn waves-effect waves-light" onclick="">Load More...</button>
+    </center>
+    <br>
+</ul>
+</div>
+{% endif %}
+<script>
+
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/static/js/search-display-task.js"></script>
+
+{% endblock %}
+<!-- </body>
+
+</html> -->

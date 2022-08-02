@@ -1,0 +1,112 @@
+
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="create-task-container">
+        <div class="form-group">
+            {% for message in messages %}
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+            {% endfor %}
+        </div>
+        <div id="nav-placeholder"></div>
+    <div class="create-task-container">
+        <div class="row">
+            <center>
+                <h5 class="create-task-title">Create Task</h5>
+            </center>
+            <form class="col l12 s12 offset-m0 offset-l2" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col l4 s12">
+                        <input placeholder="Type employee id..." id="emp-id" type="text" autocomplete="off" autofocus name="empid">
+                        <label for="emp-id">Employee ID</label>
+                        <span id="validate-eid" class="validate left"></span>
+                    </div>
+                    
+                    <div class="input-field col l4 s12">
+                        <input placeholder="Type employee name..." id="emp-name" type="text" autocomplete="off" name="empname">
+                        <label for="emp-name">Employee Name</label>
+                        <span id="validate-name" class="validate left"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col l8 s12">
+                        <input placeholder="Type employee email..." id="emp-email" type="text" autocomplete="off" name="empemail">
+                        <label for="emp-email">Employee Email</label>
+                        <span id="validate-email" class="validate left"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col l3 s12">
+                        <select id="task-name" name="task-option">
+                            <option value="IT" selected>IT</option>
+                            <option value="HR">HR</option>
+                            <option value="OTHERS">Others</option>
+                        </select>
+                        <label>Task name</label>
+                        
+                    </div>
+                    <div class="input-field col l5 s12">
+                        <textarea disabled id="task-name-manual" class="materialize-textarea" name="task-option"></textarea>
+                        <label for="task-name-manual">Type task name...</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col l4 s12">
+                        <label>Due Date</label>
+                        <input placeholder="Select Due Date" type="text" class="datepicker" name="date">
+                    </div>
+                    <div class="input-field col l4 s12">
+                        <select id="task-status" name="option">
+                            <option value="pending" selected>Pending</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                        <label>Task Status</label>
+                    </div>
+                </div>
+                <!-- get summary with datetime stamp -->
+                <div class="row all-summary">
+                    <!-- iNPUT NEW SUMMARY -->
+                    <div class="input-field col l4 s12">
+                        <textarea placeholder="Add new updates here..." id="input-summary"
+                            class="materialize-textarea" name="tasksummary"></textarea>
+                        <label for="input-summary">Task Summary</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col l3 m5 s12">
+                        <button type='submit' name='btn_submit' id="task-submit-btn"
+                            class='col s12 btn btn-large waves-effect'>Submit</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <script>
+
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/static/js/nav-bar.js"></script>
+<<<<<<< HEAD
+    <script type="text/javascript" src="../static/js/create-task.js"></script>
+    <script src="../static/js/jquery.datetimepicker.full.min.js"></script>
+=======
+    <script type="text/javascript" src="/static/js/create-task.js"></script>
+    <script src="/static/js/jquery.datetimepicker.full.min.js"></script>
+>>>>>>> b5e5f7133aa732b42a76e4c5578c6a3b9d7dbf9c
+    <script type="text/javascript">
+        // mobile navbar
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+        });
+    </script>
+
+{% endblock %}
+<!-- </body>
+
+</html> -->
