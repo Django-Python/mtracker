@@ -10,6 +10,6 @@ $(document).ready(function () {
     });
 });
 
-$('#task-update-btn').on('click', function(){
-    window.location.href = "../update-task.html";
-})
+// $('#task-update-btn').on('click', function(){
+//     window.location.href = "../update-task.html";
+// })

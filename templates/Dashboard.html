@@ -7,14 +7,14 @@
 {% if request.user.is_authenticated %}
 <div class="profile-container">
     <div class="row">
-        <h5 style="padding-left: 60px; padding-top: 17px;">Hi,{{request.user.first_name}}</h5>
+        <h5 style="padding-left: 60px; padding-top: 17px;"></h5>
     </div>
 </div>
 </div>
 </center>
 <div class="row">
     <center>
-        <h5 class="all-tasks-title">Tasks</h5>
+        <h5 class="all-tasks-title">Pending Tasks</h5>
     </center>
 
 </div>
@@ -29,37 +29,35 @@
                     <div class="">Email: <span>{{data.empemail}}</span></div>
                     <div class="">Status: <span>{{data.taskstatus}}</span></div>
                     <div>Task/Query: <span>{{data.taskname}}</span></div>
+                    <div class="">Due Date: <span class="summary-date">{{data.duedate}}</span></div>
                 </div>
             </div>
-            <div class="collapsible-body row">
-
-                <div class="task-summary col l9 s12">
-                    <div class="summary-list">
-                        <div class="">Created Date: <span class="summary-date">{{data.createdon}}</span></div>
-                        <div class="">Due Date: <span class="summary-date">{{data.duedate}}</span></div>
-                        <div class="">Summary: <span class="summary-date">{{data.tasksummary}}</span></div>
-                        <!-- <div class="">Connecting with the employee <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div>
-                    <div class="">Resolved <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div>
-                    <div class="">Getting further info <span class="summary-date">(07/15/2022, 02:00:12 PM)</span></div>
-                    <div class="">Connecting with the employee <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div>
-                    <div class="">Resolved <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div> -->
+            <div class="collapsible-body">
+                <div class="row">
+                    <div class="task-summary col s8">
+                        <div class="summary-list">
+                            <div class="">Created Date: <span class="summary-date">{{data.createdon}}</span></div>
+                            <div class="">Due Date: <span class="summary-date">{{data.duedate}}</span></div>
+                            <div class="">Summary: <span class="summary-date">{{data.tasksummary}}</span></div>
+                        </div>
                     </div>
-                </div>
-                <div class="task-actions col l3 s12">
-                    <div class="">
-                        <div class="input-field">
-                            <a href="{% url 'updatetask' data.id %}"><button type='submit' name='btn_update'
-                                    id="task-update-btn"
-                                    class='btn btn-small teal waves-effect waves-light'>Update</button></a>
+                    <div class="task-actions">
+                        <div class="">
+                            <div class="input-field">
+                                <a href="{% url 'updatetask' data.id %}"><button type='submit' name='btn_update'
+                                        id="task-update-btn"
+                                        class='btn btn-small teal waves-effect waves-light'>Update</button></a>
+                            </div>
+                            <div class="col s12"></div>
+                            <div class="input-field">
+                                <form action="{% url 'deletetask' data.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button name='btn_ask_delete' id="task-delete-btn"
+                                        class=' btn btn-small red waves-effect waves-light'>Delete</button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="col s12"></div>
-                        <div class="input-field">
-                            <form action="{% url 'deletetask' data.id %}" method="post">
-                                {% csrf_token %}
-                                <button name='btn_ask_delete' id="task-delete-btn"
-                                    class=' btn btn-small red waves-effect waves-light'>Delete</button>
-                            </form>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -77,13 +75,7 @@
 </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="../static/js/jquery.datetimepicker.full.min.js"></script>
 <script src="/static/js/search-display-task.js"></script>
-<script>
-    $(document).ready(function () {
-        $('.collapsible').collapsible();
-    });
-</script>
-{% endblock %}
-<!-- </body>
 
-</html> -->
+{% endblock %}

@@ -32,7 +32,6 @@ def home(request):
 
 @login_required(login_url="/login")
 def createTask(request):
-    """Created by Sachin PAl(ASE DATA ENGINEER[110080]) """
     if request.method == "POST":
         empId = request.POST.get('empid')
         empName = request.POST.get('empname')
@@ -71,7 +70,7 @@ def createTask(request):
 #method to show completed and pending tasks and search
 @login_required(login_url="/login")
 def search(request):
-    """Created by Sachin PAl(ASE DATA ENGINEER[110080])"""
+    
     totaltask = TaskData.objects.all().count()
     completedtask = TaskData.objects.filter(taskstatus='Completed').count()
     pendingtask = TaskData.objects.filter(taskstatus='Pending').count()
@@ -118,27 +117,10 @@ def search(request):
         }
     return render(request, "search.html", context=context)
 
-def searchResult(request):
-    """Created by Sachin PAl(ASE DATA ENGINEER[110080])"""
-    searchData = TaskData.objects.all()
-    return render(request, 'searchresult.html',{'searchData':searchData})
-
-
-def searchCompletedTask(request):
-    """Created by Sachin PAl(ASE DATA ENGINEER[110080])"""
-    searchData = TaskData.objects.filter(taskstatus='Completed')
-    return render(request, 'completedtask.html', {'searchData':searchData})
-
-
-def searchPendingTask(request):
-    """Created by Sachin PAl(ASE DATA ENGINEER[110080])"""
-    searchData = TaskData.objects.filter(taskstatus='Pending')
-    return render(request, 'pendingtask.html', {'searchData':searchData})
-
 
 @login_required(login_url="/login")
 def updateTask(request, id):
-    """Created by Sachin PAl(ASE DATA ENGINEER[110080])"""
+    
     getData = models.TaskData.objects.get(pk=id)
     # print(getData)
     if request.method == 'POST':
@@ -175,7 +157,6 @@ def updateTask(request, id):
 
 @login_required(login_url="/login")
 def deleteTask(request, id):
-    """Created by Sachin PAl(ASE DATA ENGINEER[110080]) """
     if request.method == "POST":
         getData = models.TaskData.objects.get(pk=id)
         # print(getDeletedData)
@@ -188,7 +169,6 @@ def deleteTask(request, id):
 
 @login_required(login_url="/login")
 def profileData(request):
-    """Created by Sachin PAl(ASE DATA ENGINEER[110080]) """
     totaltask = TaskData.objects.all().count()
     completedtask = TaskData.objects.filter(taskstatus='Completed').count()
     pendingtask = TaskData.objects.filter(taskstatus='Pending').count()
@@ -215,8 +195,6 @@ def profileData(request):
     return render(request, "hr-profile.html", context=context)
 
 def feedbackData(request):
-    """Created by Sachin (ASE DATA ENGINEER) """
-
     if request.method == 'POST':
         rating = request.POST.get('rating')
         feedback = request.POST.get('feedback')
@@ -229,7 +207,7 @@ def feedbackData(request):
 
 # HR user registration 
 def user_registration(request):
-    """Created by Sachin PAl(ASE DATA ENGINEER[110080])"""
+    
     if request.user.is_authenticated:
         return redirect('search')
     else:
@@ -260,7 +238,6 @@ def user_registration(request):
 
 #HR user login
 def userLogin(request):
-    """Created by Sachin PAl(ASE DATA ENGINEER[110080]) """
     if request.user.is_authenticated:
         return redirect('search')
 
@@ -268,7 +245,7 @@ def userLogin(request):
         username = request.POST.get('emp-id')
         password = request.POST.get('password')
 
-        print(username, password)
+        # print(username, password)
         user = authenticate(username=username, password=password)
         # print(user)
         if user is not None:
@@ -282,7 +259,6 @@ def userLogin(request):
 
 
 def userLogout(request):
-    """Created by Sachin PAl(ASE DATA ENGINEER[110080]) """
     logout(request)
     return redirect('login')
 

@@ -55,7 +55,7 @@
   border-radius: 10px;
   box-shadow: 0 0 5px 5px rgba(216, 216, 216, 0.678);
 }
-.task-summary-card{
+.task-count-card{
   margin-top: 10px;
   padding-left: 20px;
   min-height: 60px;
@@ -64,7 +64,7 @@
   background-color: white;
   max-width: 80%;
 }
-.task-summary-card td, .task-summary-card th{
+.task-count-card td, .task-count-card th{
   padding: 4px;
   text-align: center;
 }
@@ -92,6 +92,7 @@
 }
 .summary-list{
   text-align: left;
+  padding: 15px;
 }
 .summary-list>div{
   font-size: 15px;
@@ -106,4 +107,9 @@
 }
 .Completed{
   border:3px green solid;
+}
+
+.task-actions{
+  float: right;
+  width: 300px;
 }
