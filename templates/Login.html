@@ -17,7 +17,7 @@
     {% extends "base.html" %}
     {% block body %}
     
-    <div class="section"></div>
+    {% comment %} <div class="section"></div> {% endcomment %}
     <main>
         <center>
             <!-- <img class="responsive-img" style="width: 150px;" src="/static/img/mTracker.png" />
@@ -32,7 +32,7 @@
                   </div>
             <div class="container">
                 <div id="login-card" class="z-depth-1 grey lighten-4 row"
-                    style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+                    style="display: inline-block; padding: 32px 48px 20px 48px; border: 1px solid #EEE;">
                     <h5 class="login-title">Login</h5>
                     <form class="col s12" method="post">
                         {% csrf_token %}
@@ -53,11 +53,11 @@
                                 <input class='validate' type='password' name='password' id='password' />
                                 <label for='password'>Enter your password</label>
                             </div>
-                            <label style='float: right; font-weight: 700; padding:25px 10px;'>
-                                <a class='pink-text' href='{% url "registration" %}'>SignUp</a>
+                            <label style='float: right; font-weight: 700; padding:5px 10px;'>
+                                <a class='pink-text' target="_blank" href='{% url "registration" %}'>SignUp</a>
                             </label>
                             <label style='float: right;'>
-                                <a class='pink-text' href='{% url 'reset_password' %}'><b>Reset Password?</b></a>
+                                <a class='pink-text' target="_blank" href='{% url 'reset_password' %}'><b>Reset Password?</b></a>
                             </label>
                         </div>
 
@@ -65,7 +65,18 @@
                         <center>
                             <div class='row'>
                                 <button type='submit' name='btn_login' id="login-btn"
-                                    class='col s12 btn btn-large waves-effect'>Login</button>
+                                    class="col s12 btn btn-large waves-effect" onclick="classList.remove('button--loading');">
+                                    <span class="button__text">Login</span>
+                                </button>
+                                <script>
+                                    const btn = document.querySelector("#login-btn");
+
+                                    btn.addEventListener("click", () => 
+                                    { 
+                                     btn.classList.add("button--loading");
+                                    });
+                                    
+                                </script>
                             </div>
                         </center>
                     </form>
@@ -73,8 +84,8 @@
             </div>
         </center>
 
-        <div class="section"></div>
-        <div class="section"></div>
+        {% comment %} <div class="section"></div>
+        <div class="section"></div> {% endcomment %}
     </main>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>

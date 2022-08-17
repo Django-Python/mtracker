@@ -33,32 +33,44 @@
     <link rel="stylesheet" href="/static/css/jquery.datetimepicker.css">
     <link rel="stylesheet" href="/static/css/search-display-task_style.css">
     <link rel="stylesheet" href="/static/css/hr-profile_style.css">
-    
-
+    <link rel="stylesheet" href="/static/css/nav-bar_style.css">
     <title>mTracker</title>
+    <link rel="icon" href="\static\img\MainLogo.png">
 </head>
 
 <body>
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">
-                    <img src="/static/img/mTracker.png">
-                </a>
+                   
                 <a href="#" data-target="mobile-side-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down">
+                <div class="nav" id="nav"> 
+                    <a href="{% url 'home' %}" class="brand-logo" id="brandlogo"> <img src="/static/img/mtrackerlogo1.jpg"> </a>   
+                <div id="vertical"> 
+                    <li></li>
+
+                </div>
+                <div class="marlabs logo" id="marlabslogo">
+                    <li>
+                        <img src="/static/img/Marlabs logo.png">
+                    </li>    
+                </div>  
+                <ul id="bordereff">
                     {% if user.is_authenticated %}
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'create' %}">Create</a></li>
-                    <li><a href="{% url 'search'%}">Search Tasks</a></li>
+                    <li><a  href="{% url 'home' %}">Home</a></li>
+                    <li><a  href="{% url 'create' %}">Create</a></li>
+                    <li><a  href="{% url 'search'%}">Search Tasks</a></li>
                     
-                    <li><a href="{% url 'profile'%}">Profile</a></li>
-                    <li><a href="{% url 'logout'%}">Logout</a></li>
+                    <li><a  href="{% url 'profile'%}">Hi, {{request.user.first_name}}</a></li>
+                    <li><a  href="{% url 'logout'%}">Logout</a></li>
                     {% else %}
-                    <li><a href="{% url 'login'%}">Login</a></li>
+                     <li>
+                        {% comment %} <a href="{% url 'login'%}">Login</a> {% endcomment %}
+                    </li> 
                     {% endif %}
                 </ul>
-            </div>
+                </div>
+            </div> 
         </nav>
 
         <ul class="sidenav" id="mobile-side-nav">
@@ -77,7 +89,7 @@
 
     {% block body %}
     {% endblock %}
-
+    
 </body>
 
 </html>

@@ -19,19 +19,19 @@
                     <div class="task-search row">
                         <div class="input-field col l3 m5 s10">
                             <label>From</label>
-                            <input placeholder="Select starting Date" type="text" class="datepicker" name="fromdate">
+                            <input placeholder="Select starting Date" type="text" class="datepicker" name="fromdate" autocomplete="off">
                         </div>
                         <div class="input-field col l3 m5 s10">
                             <label>To</label>
-                            <input placeholder="Select ending Date" type="text" class="datepicker" name="todate">
+                            <input placeholder="Select ending Date" type="text" class="datepicker" name="todate"  autocomplete="off">
                         </div>
                         <div class="input-field col l3 m5 s10">
                             <label>Employee ID</label>
-                            <input class="col" type="text" placeholder="Type employee id..." name="empid">
+                            <input class="col" type="text" placeholder="Type employee id..." name="empid"  autocomplete="off">
                         </div>
                         <div class="input-field col l3 m5 s10">
                             <label>Task</label>
-                            <input class="col" type="text" placeholder="Type task name..." name="task">
+                            <input class="col" type="text" placeholder="Type task name..." name="task"  autocomplete="off">
                         </div>
                         <!-- send search request based on input -->
                         <div class="input-field col l12 m12 s12">
@@ -42,44 +42,35 @@
             </center>
             <div class="row">
                 <center>
-                    <div class="row">
-                        <center>
-                            <div class="profile-details-card z-depth-3 task-card collapsible">
+                    <div class="z-depth-1 task-summary-card">
+                        <table>
+                            <tr>
+                                <th>Total Task</th>
+                                <th>Completed Task</th>
+                                <th>Pending Task</th>
+                            </tr>
+                            <tr>
+                                <td><a href="" class="Task-Lists" id="Total"
+                                        style="color:blue; font-weight: bold; padding-left: 40px;">{{totaltask}}</a>
 
-                                <center>
-                                    <table>
-                                        <tr></tr>
-                                        <th>Total Task</th>
-                                        <th>Completed Task</th>
-                                        <th>Pending Task</th>
-                                        </tr>
-                                        <tr>
+                                </td>
 
-                                            <td><a href="" class="Task-Lists" id="Total"
-                                                    style="color:blue; font-weight: bold; padding-left: 40px;">{{totaltask}}</a>
+                                <td><a href="" class="Task-Lists" id="Completed"
+                                        style="color:green; font-weight: bold;  padding-left: 40px;">{{completedtask}}</a
+                                        href="">
 
-                                            </td>
+                                </td>
 
-                                            <td><a href="" class="Task-Lists" id="Completed"
-                                                    style="color:green; font-weight: bold;  padding-left: 40px;">{{completedtask}}</a
-                                                    href="">
+                                <td><a href="" class="Task-Lists" id="Pending"
+                                        style="color:orange; font-weight: bold;  padding-left: 40px;">{{pendingtask}}</a>
 
-                                            </td>
+                                </td>
 
-                                            <td><a href="" class="Task-Lists" id="Pending"
-                                                    style="color:orange; font-weight: bold;  padding-left: 40px;">{{pendingtask}}</a>
+                            </tr>
+                        </table>
 
-                                            </td>
-
-                                        </tr>
-                                    </table>
-                                </center>
-                            </div>
-                        </center>
-                        <br>
                     </div>
                 </center>
-
             </div>
             <div id="All-Task-Data">
                 <ul class="collapsible">
@@ -98,15 +89,12 @@
 
                             <div class="task-summary col l9 s12">
                                 <div class="summary-list">
-                                    <div class="">Created Date: <span class="summary-date">{{data.createdon}}</span>
-                                    </div>
-                                    <div class="">Due Date: <span class="summary-date">{{data.duedate}}</span></div>
+                                        <div class="">Created Date: <span
+                                                class="summary-date">{{data.createdon}}</span>
+                                        </div>
+                                        <div class="">Due Date: <span class="summary-date">{{data.duedate}}</span>
+                                        </div>
                                     <div class="">Summary: <span class="summary-date">{{data.tasksummary}}</span></div>
-                                    <!-- <div class="">Connecting with the employee <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div>
-                                <div class="">Resolved <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div>
-                                <div class="">Getting further info <span class="summary-date">(07/15/2022, 02:00:12 PM)</span></div>
-                                <div class="">Connecting with the employee <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div>
-                                <div class="">Resolved <span class="summary-date">(07/20/2022, 02:00:12 PM)</span></div> -->
                                 </div>
                             </div>
                             <div class="task-actions col l3 s12">

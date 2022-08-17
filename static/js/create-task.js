@@ -18,6 +18,7 @@ $('#task-name').on('change', function () {
     var taskName = $('#task-name').find(":selected").text();
     if (taskName == "Others") {
         $("#task-name-manual").prop('disabled', false);
+        $("#task-name-manual").focus();
     }
     else {
         $("#task-name-manual").prop('disabled', true);

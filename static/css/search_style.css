@@ -1,11 +1,7 @@
 body{
     overflow-x: hidden;
 }
-.nav-wrapper{
-    padding: 0% 15% 0% 10%;
-    background-color: #504DFF;
-    position: fixed;
-}
+
 
 .search-tab-container{
     padding: 1% 10% 0% 10%;

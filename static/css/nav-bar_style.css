@@ -1,32 +1,161 @@
-body{
-    overflow-x: hidden;
-}
-.logo{
-    margin: 15px;
-}
-.navbar{
-    z-index: 10;
-    padding: 0% 15% 0% 10%;
-    background-color: #504DFF;
-}
-.nav_items{
+
+/* .nav_items>li>a{
+    text-decoration:none; 
+    position: fixed;
+    
+} */
+
+/* .nav_items>li:hover{
+    background-color:rgba(238, 228, 225, 0.884);
+    border-radius: 5px;
+   text-underline-offset:initial;
+   text-decoration: none;
+   box-shadow: 0 1px 1px 0 rgba(158, 7, 7, 0.1);
+   
+
+}  */
+
+
+/* .nav ul a {
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    font-size: 1rem;
+    color: #9e9e9e;
+    display:inline;
+    padding: 5px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 25px;
+    border-width: 2px;
+    text-align-last: right; 
+     text-align:right; 
+     float:inline-end;
+     margin-left: 100px;
+     margin
+     
+   
+} */
+/* .nav ul a:hover
+{
+    border-radius: 20px;
+    border-width: 10px;
+}  */
+/* .brand-logo img
+{
+    position: fixed;
+    padding: 0% 15% 0% 10%; 
+    margin-left: 8%;
+    margin-top: 2%;
+} */
+
+
+*{
+    padding: 0;
     margin: 0;
+    text-decoration: none;
     list-style: none;
-    display: flex;
-    flex-direction: row;
-    column-gap: 15px;
-    flex-wrap: nowrap;
-    float: right;
-    justify-content: flex-end;
-    height: 100%;
+
 }
-.nav_items>li>a{
-    color: aliceblue;
-    font-size: 18px; 
+body{
+    background-color:white;
 }
-.nav_items>li{
-    padding: 15px;
+nav
+{
+    background:white;
+    height: 0px;
+    width: 100%;
+    text-decoration: none;
+    
 }
-.nav_items>li:hover{
-    background-color: blue;
+nav ul
+{
+    float:right;
+    margin-right: 50px;
+    margin-left: 650px;
+    font-size: 20px;
+    
 }
+nav ul li
+{
+    display: inline-block;  
+    line-height: 22px;
+    margin: 0 2px;
+    margin-top: 15px;
+
+}
+nav ul li a 
+{
+    color:black;
+    font-size: 20px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: 400;
+    
+}
+#bordereff li a:focus {
+    outline-color:transparent;
+    outline-style:solid;
+    box-shadow: 0 0 0 1.9px rgb(84, 84, 138);
+}
+
+#brandlogo img{
+    position:absolute;
+    left: 5%;
+    top: 15%;
+    width: 130px;
+    height: 45px;
+    margin-left: 45px;
+    margin-top: 12px;
+    
+    
+}
+#marlabslogo
+{
+    position: absolute;
+    left: 20%;
+    top: 0;
+    
+}
+#nav
+{
+    position: absolute;
+    top: -25%;
+    right: 0 ;
+    left: 0;
+    padding-bottom: 10px;
+    background-color: white;
+    height: 70px;
+    
+    /* font-weight: 500; */    
+}
+
+.navbar-fixed
+{
+    background: white !important;
+}
+ul>li>a 
+{
+    color:black;
+    padding: 8px 15px;
+    border-radius: 10px;
+    
+}
+
+
+#nav ul li a:hover
+{
+    text-decoration: none;
+    border-radius: 10px;
+    color: black;    
+}
+#vertical
+{
+    position: absolute;
+    border-left: 0.7px solid rgb(211, 211, 211) ;
+    margin-left: 16.5%;
+    height: 35px;
+    margin-top: 15px;
+    margin-bottom: 0;
+    
+}
+

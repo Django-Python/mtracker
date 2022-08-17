@@ -1,17 +1,25 @@
 body {
-    display: flex;
-    min-height: 100vh;
+    display:flex;
+    height: 100vh; 
     flex-direction: column;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    position: fixed;    
 }
 
 main {
     flex: 1 0 auto;
 }
 
-body {
+body 
+{
     background: #504DFF;
 }
+
 #login-card{
+    margin-top: 70px;
     border-radius: 20px;
     width: 400px;
 }
@@ -25,9 +33,53 @@ body {
     margin-bottom: 0;
 }
 #login-btn{
+    position: relative;
     background: #504DFF;
-    border-radius: 10px;
+    border-radius: 13px;
+    font-weight: 700;
+    font-size: 17px;
+    cursor: pointer;
 }
+#login-btn:active
+{
+    background: #504DFF;
+    /* border-radius: 10px; */    
+}
+.button__text
+{
+    transition: all 0.2s;
+}
+.button--loading .button__text
+{
+    visibility: hidden;
+    opacity: 0;
+}
+.button--loading::after {
+    content: " ";
+    position: absolute;
+    width: 18px;
+    height: 17px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 5px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+@keyframes button-loading-spinner 
+{
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
 .validate{
     padding: 2px 5px 2px 10px;
     font-size: 13px;

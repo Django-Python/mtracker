@@ -6,31 +6,36 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-.search-btn, .load-more-btn{
+.search-btn, .load-more-btn
+{
     background: #504DFF !important;
 }
 .btn{
     border-radius: 10px;
 }
-.pending-tasks-container{
+.pending-tasks-container
+{
     padding: 1% 10% 0% 10%;
 }
 
-.pending-tasks-title{
+.pending-tasks-title
+{
     font-weight: 800;
     color: #504DFF;
 }
-.collapsible{
+.collapsible
+{
     border: 0px;
     margin: 0px;
     -webkit-box-shadow: none;
 }
 .collapsible-header{
     flex-direction: column;
-    line-height: 2.0;
+    line-height: 1.0;
     border-bottom: none;
 }
-.collapsible-body{
+.collapsible-body
+{
     border-top: 1px solid #ddd;;
     border-bottom: none;
     padding: 0rem;
@@ -39,8 +44,8 @@
     min-height: 100px;
     width: auto;
     background-color: white;
-    padding: 10px 20px;
-    margin: 20px 0px;
+    padding: 5px 50px;
+    margin: 10px 0px;
     border-radius: 10px;
     box-shadow: 0 0 5px 5px rgba(216, 216, 216, 0.678);
 }
@@ -50,6 +55,7 @@
     justify-content:left;
     flex-wrap: wrap;
     column-gap: 30px;
+    
 }
 .task-card>div>div>div>span{
     color: #504DFF;
