@@ -9,13 +9,16 @@
   flex-wrap: wrap;
   align-content: flex-start;
 }
-.input-field{
+.task-search .input-field{
   margin-left: 0;
+  padding: 0px 20px !important;
 }
-.search-btn, .load-more-btn{
+.input-field .search-btn, .load-more-btn{
   background: #504DFF !important;
   height: 40px;
-  margin-top: 10px;
+  margin-top: 8px;
+  float: right;
+  
 }
 
 .btn, .btn:hover{
@@ -53,7 +56,8 @@
   padding: 0px 20px;
   margin: 20px 0px;
   border-radius: 10px;
-  box-shadow: 0 0 5px 5px rgba(216, 216, 216, 0.678);
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+  /* box-shadow: 0 0 5px 5px rgb(230, 230, 230); */
 }
 .task-count-card{
   margin-top: 10px;
@@ -103,10 +107,10 @@
   color: #504DFF;
 }
 .Pending{
-  border:3px orange solid;
+  outline:2px orange solid;
 }
 .Completed{
-  border:3px green solid;
+  outline:2px green solid;
 }
 
 .task-actions{

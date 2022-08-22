@@ -18,9 +18,9 @@ body{
 }
 
 .validate{
-    padding: 2px 5px 2px 10px;
+    padding: 2px 5px 15px 10px;
     font-size: 13px;
-    height: 10px;
+    height: 20px;
 }
 .invalid{
     color: red;
@@ -38,10 +38,18 @@ input,textarea{
     min-height: 40px !important;
     border-radius: 10px !important;
     border: #444444d5 1px solid !important;
-    margin-top: 10px !important;
+    margin-top: 5px !important;
     margin-bottom: 0px !important; 
+}
+.update-task-container .input-field{
+    margin-bottom: 10px !important;
+    height: 75px !important;
 }
 /* label color */
 .input-field>label {
-    color: #2d2d53 !important;
+    color: #020270 !important;
+}
+
+.input-field > textarea {
+    height: 55px !important;
 }

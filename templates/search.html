@@ -6,7 +6,7 @@
         <center>
             <div class="form-group">
                 {% for message in messages %}
-                <div class="alert alert-danger" role="alert">
+                <div class="alert alert-success" role="alert">
                     {{message}}
                 </div>
                 {% endfor %}
@@ -17,28 +17,28 @@
                 <form action="{% url 'search' %}" method="post">
                     {% csrf_token %}
                     <div class="task-search row">
-                        <div class="input-field col l3 m5 s10">
+                        <div class="input-field col l2 m5 s10">
                             <label>From</label>
                             <input placeholder="Select starting Date" type="text" class="datepicker" name="fromdate"
                                 autocomplete="off">
                         </div>
-                        <div class="input-field col l3 m5 s10">
+                        <div class="input-field col l2 m5 s10">
                             <label>To</label>
                             <input placeholder="Select ending Date" type="text" class="datepicker" name="todate"
                                 autocomplete="off">
                         </div>
-                        <div class="input-field col l3 m5 s10">
+                        <div class="input-field col l2 m5 s10">
                             <label>Employee ID</label>
                             <input class="col" type="text" placeholder="Type employee id..." name="empid"
                                 autocomplete="off">
                         </div>
-                        <div class="input-field col l3 m5 s10">
+                        <div class="input-field col l2 m5 s10">
                             <label>Task</label>
                             <input class="col" type="text" placeholder="Type task name..." name="task"
                                 autocomplete="off">
                         </div>
                         <!-- send search request based on input -->
-                        <div class="input-field col l12 m12 s12">
+                        <div class="input-field col l2 m5 s10" style="flex: 0">
                             <button class="btn search-btn waves-effect waves-light" onclick="">Search</button>
                         </div>
                     </div>

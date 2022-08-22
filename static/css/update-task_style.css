@@ -4,7 +4,7 @@ body{
 
 .update-task-container
 {
-    padding: 1% 10% 0% 10%;
+    padding: 1% 20% 0% 20%;
 }
 #task-update-btn{
     background: #504DFF;
@@ -17,6 +17,7 @@ body{
 .update-task-title{
     font-weight: 800;
     color: #504DFF;
+    margin-bottom: 25px;
 }
 #task-list{
     max-height: 150px;
