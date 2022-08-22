@@ -125,9 +125,11 @@ def updateTask(request, id):
     # print(getData)
     if request.method == 'POST':
         getData = models.TaskData.objects.get(pk=id)
+        
+        print(request.POST)
         getData.empname = request.POST.get('emp-name')
         getData.empemail = request.POST.get('emp-email')
-        print(request.POST.get('task-option'))
+        print(request.POST.get('emp-name'))
         getData.taskname = request.POST.get('task-option')
         getData.duedate = request.POST.get('due-date')
         getData.taskstatus = request.POST.get('task-status').title()

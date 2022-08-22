@@ -7,30 +7,30 @@
             <center>
                 <h5 class="update-task-title">Update Task</h5>
             </center>
-            <form class="col l12 s12 offset-m0" method="post">
+            <form class="col l12 s12 offset-m0" method="post" action="">
                 {% csrf_token %}
                 <div class="row">
                     <div class="input-field col l4 s12">
-                        <input disabled placeholder="Type employee id..." id="emp-id" type="text" class="validate" name="emp-id"
+                        <input readonly="readonly" placeholder="Type employee id..." id="emp-id" type="text" class="validate" name="emp-id"
                             value={{getData.empid}}>
                         <label for="emp-id">Employee ID</label>
                     </div>
                     <div class="input-field col l4 s12">
-                        <input disabled placeholder="Type employee name..." id="emp-name" type="text" class="validate" name="emp-name"
+                        <input readonly="readonly" placeholder="Type employee name..." id="emp-name" type="text" class="validate" name="emp-name"
                             value={{getData.empname}}>
                         <label for="emp-name">Employee Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col l8 s12">
-                        <input disabled placeholder="Type employee email..." id="emp-email" type="text" class="validate" name="emp-email"
+                        <input readonly="readonly" placeholder="Type employee email..." id="emp-email" type="text" class="validate" name="emp-email"
                     value={{getData.empemail}}>
                         <label for="emp-email">Employee Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col l3 s12">
-                        <select id="task-name" name="task-option">
+                        <select readonly="readonly" id="task-name" name="task-option">
                             <option value={{getData.taskname}}>{{getData.taskname}}</option>
                         </select>
                         <label>Task name</label>
